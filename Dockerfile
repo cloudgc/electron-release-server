@@ -1,20 +1,15 @@
-FROM node:6
+FROM node
 
-# Create app directory
-RUN mkdir -p /usr/src/electron-release-server
-WORKDIR /usr/src/electron-release-server
+RUN wget https://codeload.github.com/ArekSredzki/electron-release-server/tar.gz/v1.4.3 -O electron.tar
 
-# Install app dependencies
-COPY package.json .bowerrc bower.json /usr/src/electron-release-server/
-RUN npm install \
-  && ./node_modules/.bin/bower install --allow-root \
-  && npm cache clean
+RUN mkdir /electron-config
 
-# Bundle app source
-COPY . /usr/src/electron-release-server
+RUN echo '{"allow_root": true }' > ~/.bowerrc
 
-COPY config/docker.js config/local.js
+RUN tar -xvf electron.tar && cd ./electron-release-server-1.4.3  && npm install  &&  npm run postinstall --allow-root
 
-EXPOSE 80
+RUN ln -s  /electron-config/local.js  /electron-release-server-1.4.3/config/local.js
+
+WORKDIR /electron-release-server-1.4.3
 
 CMD [ "npm", "start" ]
