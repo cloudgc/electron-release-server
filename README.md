@@ -67,3 +67,20 @@ This project has been built from the Sails.js up by Arek Sredzki, with inspirati
 
 ## License
 [MIT License](LICENSE.md)
+
+
+## Docker
+
+download https://github.com/cloudgc/electron-release-server/blob/master/config/local.template 
+
+> wget  https://github.com/cloudgc/electron-release-server/blob/master/config/local.template  -O local.js 
+
+
+the download file must name **local.js**
+
+change the db config 
+
+mount to the docker /electron-config/ 
+
+>  docker run -d -v /tmp/config:/electron-config/  cloudfun/electron-release-server 
+
