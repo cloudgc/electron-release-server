@@ -78,7 +78,7 @@ download https://github.com/cloudgc/electron-release-server/blob/master/config/l
 
 the download file must name **local.js**
 
-change the db config 
+change the db config and system config
 
 mount to the docker /electron-config/ 
 
