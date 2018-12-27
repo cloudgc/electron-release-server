@@ -12,7 +12,7 @@ WORKDIR /electron-release-server-1.4.3-fix
 
 RUN npm install  &&  npm run postinstall --allow-root
 
-RUN ln -s  /electron-config/local.js  /electron-release-server-1.4.3/config/local.js
+RUN ln -s  /electron-config/local.js  /electron-release-server-1.4.3-fix/config/local.js
 
 
 CMD [ "npm", "start" ]
