@@ -1,6 +1,6 @@
 FROM node
 
-RUN wget https://codeload.github.com/ArekSredzki/electron-release-server/tar.gz/v1.4.3 -O electron.tar
+RUN wget https://codeload.github.com/cloudgc/electron-release-server/tar.gz/1.4.3-fix -O electron.tar
 
 RUN mkdir /electron-config
 
@@ -8,7 +8,7 @@ RUN echo '{"allow_root": true }' > ~/.bowerrc
 
 RUN tar -xvf electron.tar
 
-WORKDIR /electron-release-server-1.4.3
+WORKDIR /electron-release-server-1.4.3-fix
 
 RUN npm install  &&  npm run postinstall --allow-root
 
